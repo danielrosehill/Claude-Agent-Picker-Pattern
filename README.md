@@ -103,6 +103,11 @@ HTPG has to have some firepower, though. So I envision him working like this, in
 ![alt text](images/6.png)
 *Graphic: Selected subagents are truncated for context optimisation before (almost) being dispatched into a repo*
 
+Potential "tactics" for substitution:
+
+- Remove least important subagents 
+- Truncate descriptions / shorten system prompts of constituent agents 
+
 ### Task 3: Variable-based agent config adaption
 
 Finally - tweak the (stock) configs: this could be variable substitution to give our cookie cutter subagents a bit of context about the project. But mostly we expect and hope that this will happen through Claude's excellent built-in orchestration.
