@@ -84,19 +84,34 @@ Either way, here's my twist on it:
 
 Downstream, this agent could select both. In this implementation (V1) let's just stick to subagent crew formation.
 
-So Harsh Team Picker Guy (HTPG) is a friendly pre-kickoff agent. In real world terms, I imagine HTPG as the project lead when you offload some project to an outsourced company. The project lead listens, takes notes, and assigns internal resources to your job. HTPG does thusly.
+So Harsh Team Picker Guy (HTPG) is a friendly pre-kickoff agent. 
+
+In real world terms, I imagine HTPG as the project lead when you offload some project to an outsourced company. The project lead listens, takes notes, and assigns internal resources to your job. HTPG does thusly.
 
 HTPG has to have some firepower, though. So I envision him working like this, in sequence:
 
+### Task 1: Crew shortlisting / selection 
+
 - Evaluate the project spec the user is proposing 
 - Draw up a shortlist of subagents to form a "crew" with minimal task overlap and maximal "synergy" 
+
+### Task 2: Truncate crew to fit context limit (user-set)
+
 - Calculate the approximate cumulative context window that the desired-for crew would impose 
 - If beyond the defined limit, make some substitutions until we can get a crew together that fits within that limit.
 
 ![alt text](images/6.png)
 *Graphic: Selected subagents are truncated for context optimisation before (almost) being dispatched into a repo*
 
+### Task 3: Variable-based agent config adaption
+
 Finally - tweak the (stock) configs: this could be variable substitution to give our cookie cutter subagents a bit of context about the project. But mostly we expect and hope that this will happen through Claude's excellent built-in orchestration.
+
+### Task 4 (Wrap): Copy adapted crew to target directory (project workspace)
+
+This completes the flow.
+
+---
 
 The flow (describing the intended scripting in natural language):
 
