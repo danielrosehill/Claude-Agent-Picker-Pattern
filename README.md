@@ -35,11 +35,23 @@ Once upon a time, LLMs were envisioned as tools for handling (simple) text. Nowa
 
 Etc. 
 
+## Why Both With Subagents At All?
+
+Some are strenously against multiagent systems. 
+
+But this quote from the Anthropic docs illustrates why it's worth persevering with working with subagents in spite of this limit:
+
+"Each subagent operates in its own context, preventing pollution of the main conversation and keeping it focused on high-level objectives."
+
+Which is a very big deal when context pollution can flatten out otherwise great inference. 
+
 For creating performant agentic systems, using emerging tooling judiciously has become almost as vital an enterprise as knowing what tooling to use.
 
 Thus, a late night idea for a workaround pattern (even if imperfect, flawed, etc):
 
-## The Idea
+---
+
+# The Idea
 
 ![alt text](images/1.jpg)
 
@@ -52,15 +64,7 @@ It offers a hacky workaround because:
 
 At the time of writing, the inner mechanics of agent delegation are opaque. 
 
-## Why Subagents Are Worth Using 
 
-A quick tangent:
-
-This quote from the Anthropic docs illustrates why it's worth persevering with working with subagents in spite of this limit:
-
-"Each subagent operates in its own context, preventing pollution of the main conversation and keeping it focused on high-level objectives."
-
-Which is a very big deal when context pollution can flatten out otherwise great inference. 
 
 ---
 
