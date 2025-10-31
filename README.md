@@ -134,14 +134,31 @@ This completes the flow.
 
 ---
 
-The flow (describing the intended scripting in natural language):
+## The Flow
 
-- Crew gets copied to a temp directory 
-- Crew gets edited slightly for the task at hand by variable insertion 
-- Crew gets copied into the project directory at `./claude/agents` 
-- CLAUDE.md gets created there. CLAUDE.md contains a brief overview of the crew. 
-- User gets a success message and is informed that their repo has been created with a nice team of subagents (that won't overrun context)
-- User can create as many stock agents as they wish and know that they will be kept safe in a library and assembled when needed for projects
+The complete agent picker pattern workflow:
+
+| Step | Phase | Action | Description |
+|------|-------|--------|-------------|
+| 1 | **Input** | User provides project specification | User describes the project requirements, goals, and desired functionality |
+| 2 | **Analysis** | HTPG evaluates project requirements | Parse project spec to understand needed capabilities and task types |
+| 3 | **Selection** | HTPG shortlists candidate subagents | Draw up initial shortlist from agent farm with minimal task overlap and maximal synergy |
+| 4 | **Optimization** | Calculate cumulative context window | Assess total context consumption of selected crew (agent descriptions + system prompts) |
+| 5 | **Optimization** | Truncate crew if needed | If beyond user-set limit, remove least essential agents or truncate descriptions to fit |
+| 6 | **Staging** | Copy crew to temp directory | Stage selected agents in temporary workspace for modification |
+| 7 | **Adaptation** | Apply variable-based config tweaks | Insert project-specific variables and context into agent configs |
+| 8 | **Deployment** | Copy adapted crew to project | Move finalized agent configs to `./claude/agents` in target project directory |
+| 9 | **Documentation** | Generate CLAUDE.md | Create project-level documentation with crew overview and agent responsibilities |
+| 10 | **Completion** | Return success message | Inform user that repo is configured with optimized subagent crew |
+
+### Benefits
+
+This workflow enables users to:
+- Maintain a centralized library of reusable subagents
+- Intelligently assemble project-specific crews without manual configuration
+- Stay within context limits through automated optimization
+- Leverage the same agents across personal and work projects
+- Focus on project goals rather than agent management
 
 ## Reference
 
