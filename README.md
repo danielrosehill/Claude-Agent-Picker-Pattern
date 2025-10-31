@@ -25,7 +25,7 @@ The actual problem in technical terms: context flooding:
 
 A thought:
 
-If AI tooling progresses faster than context widows grow, this problem can be expected to get more acute and its consequences to be more widely felt. 
+If AI tooling progresses faster than context windows grow, this problem can be expected to get more acute and its consequences to be more widely felt. 
 
 Once upon a time, LLMs were envisioned as tools for handling (simple) text. Nowadays, our somewhat fantastical ambition has evolved to that LLMs can maintain good inference while simultaneously dealing with:
 
@@ -37,7 +37,7 @@ Etc.
 
 ## Why Bother With Subagents At All?
 
-Some are strenously against multiagent systems. 
+Some are strenuously against multiagent systems. 
 
 But this quote from the Anthropic docs illustrates why it's worth persevering with working with subagents in spite of this limit:
 
@@ -159,6 +159,56 @@ This workflow enables users to:
 - Stay within context limits through automated optimization
 - Leverage the same agents across personal and work projects
 - Focus on project goals rather than agent management
+
+---
+
+## Implementation: Slash Command
+
+This repository includes a slash command implementation (`/agent-picker`) that automates the crew assembly workflow.
+
+### How It Works
+
+The slash command guides Claude through an intelligent agent selection process:
+
+1. **Agent Farm Review**: Claude examines the available subagents in the `./agent-farm` directory
+2. **Context Analysis**: Claude evaluates the repository's purpose and requirements
+3. **Intelligent Selection**: Claude selects agents optimizing for:
+   - **Synergy**: Subagents that work well together in the orchestration model
+   - **Context Load**: Collective crew doesn't pose undue context limits
+   - **Task Appropriateness**: Each agent is well-suited to the project goals
+4. **Deployment**: Selected agents are copied to `./claude/agents` for use in the project
+5. **Optional Customization**: Agents may be tailored to the specific task context
+
+### Usage
+
+To use the agent picker slash command in your Claude Code workspace:
+
+```bash
+/agent-picker
+```
+
+Claude will automatically assemble an optimized multi-agent crew based on your project's needs and the available agents in your agent farm.
+
+### Agent Farm Structure
+
+The agent farm (`./agent-farm`) serves as a staging area where you can:
+- Store reusable subagent configurations
+- Write and test new agent definitions
+- Maintain a library of specialized agents across projects
+
+Each markdown file in the agent farm represents a distinct subagent configuration.
+
+### Implementation Flexibility
+
+The agent picker pattern supports two implementation approaches:
+
+1. **Repository-Internal** (as demonstrated in this repo): The agent farm lives within the project at `./agent-farm`, making it easy to version control agent configurations alongside the project code. This approach is ideal for project-specific agent collections or when you want self-contained repositories.
+
+2. **External Agent Farm**: Maintain a centralized agent farm (e.g., `~/subagents`) that can be referenced across multiple projects. This approach allows you to build a personal library of reusable agents that can be deployed to any project.
+
+Both approaches work with the `/agent-picker` slash command - simply adjust the agent farm path in your implementation to match your organizational preference.
+
+---
 
 ## Reference
 
