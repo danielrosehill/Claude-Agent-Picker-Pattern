@@ -35,7 +35,7 @@ Once upon a time, LLMs were envisioned as tools for handling (simple) text. Nowa
 
 Etc. 
 
-## Why Both With Subagents At All?
+## Why Bother With Subagents At All?
 
 Some are strenously against multiagent systems. 
 
