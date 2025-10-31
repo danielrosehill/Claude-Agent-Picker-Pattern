@@ -23,13 +23,25 @@ The actual problem in technical terms: context flooding:
 
 ![alt text](images/2.jpg)
 
-While one million tokens seems like a lot, it's not hard to imagine that the AI geeks of tomorrow will wonder how we ever managed to get good results from AI at all like this - like it's hard to imagine how we ever managed when it wasn't possible to watch endless cat videos and your internet made squeaky sounds to get online. 
+A thought:
+
+If AI tooling progresses faster than context widows grow, this problem can be expected to get more acute and its consequences to be more widely felt. 
+
+Once upon a time, LLMs were envisioned as tools for handling (simple) text. Nowadays, our somewhat fantastical ambition has evolved to that LLMs can maintain good inference while simultaneously dealing with:
+
+- Lots of text (code) 
+- Tool definitions (MCP) 
+- Agent maps 
+
+Etc. 
+
+For creating performant agentic systems, using emerging tooling judiciously has become almost as vital an enterprise as knowing what tooling to use.
+
+Thus, a late night idea for a workaround pattern (even if imperfect, flawed, etc):
 
 ## The Idea
 
 ![alt text](images/1.jpg)
-
-This isn't a "solution". It's just an idea that I wanted to jot down before it slipped out of my mind.
 
 I call it the agent picker because the first thought I had when writing this was the high school ritual of picking teammates for a game of soccer (was that just my school? It seems awfully callous!).
 
